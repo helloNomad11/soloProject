@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPL Players</title>
+</head>
+<body>
+    <h1>EPL Players</h1>
+    <ul id="playerList"></ul>
+
+    <script>
+        window.onload = async function() {
+            // 서버로부터 선수 목록을 가져와서 표시
+            const response = await fetch('/players');
+            const players = await response.json();
+            const playerList = document.getElementById('playerList');
+
+            players.forEach(player => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<a href="/players/${player._id}">${player.name}</a>`;
+                playerList.appendChild(listItem);
+            });
+        };
+    </script>
+</body>
+</html>
