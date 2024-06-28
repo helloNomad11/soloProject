@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <script src="/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="navbar.html :: navbar"></div>
+<div class="container">
+    <h1>Employee Detail</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">직원 정보</h5>
+            <img th:src="${employee.getImage()}" alt="사진이 없습니다.">
+            <p class="card-text"><strong>이름:</strong> <span th:text="${employee.getName()}">Name</span></p>
+            <p class="card-text"><strong>e-mail:</strong> <span th:text="${employee.getEMail()}">Email</span></p>
+            <p class="card-text"><strong>phone-number:</strong> <span th:text="${employee.getPhoneNumber()}">Phone Number</span></p>
+            <p class="card-text"><strong>부서:</strong> <span th:text="${employee.getTeam()}">Team</span></p>
+            <a th:href="@{/employees/update/{id}(id=${employee.getEmployeeId()})}" class="btn btn-primary">수정</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

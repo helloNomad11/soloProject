@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Employee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <script src="/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="navbar.html :: navbar"></div>
+<h1>Delete Employee</h1><br>
+<p>
+    삭제하신 후에는 복구할 수 없습니다.
+    계속 진행하시려면 아래 삭제 버튼을 눌러주십시오.
+</p><br><br>
+<td>
+    <form th:action="@{/employees/delete/${employee.getEmployeeId()}}" th:method="delete">
+        <button th:href="@{/employee/delete/{id}(id=${employee.getEmployeeId()})}"
+                value="삭제" class="btn btn-danger">삭제</button>
+    </form>
+</td>
+</body>
+</html>

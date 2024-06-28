@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <script src="/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="navbar.html :: navbar"></div>
+<div class="container">
+    <h1>Post List</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>제목</th>
+            <th>작성자</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="post : ${postList}">
+            <div class="container mb-3" th:method="get" type="button" onclick=""> <!--Todo: 리다이렉트 버튼 -->
+                <td>
+                    <a th:href="@{|/posts/${post.getPostId()}|}"
+                       th:text="${post.getTitle()}">Title
+                    </a>
+                </td>
+                <td th:text="${post.getWriter()}">Writer</td>
+            </div>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

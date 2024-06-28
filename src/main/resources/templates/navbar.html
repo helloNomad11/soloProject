@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+  <meta charset="UTF-8">
+  <title>NavBar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/bootstrap.min.css">
+  <script src="/bootstrap.min.js"></script>
+</head>
+<body th:fragment="navbar">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item">
+        <a class="nav-link active" href="/employees">직원 목록</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/employees/create">직원 생성</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/posts">게시판</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/posts/create">글 작성</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link shadow" href="/login?logout">로그아웃</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</body>
+</html>

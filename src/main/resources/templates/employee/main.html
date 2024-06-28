@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <script src="/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="navbar.html :: navbar"></div>
+<form class="d-flex" th:action="@{/search/{keyword}(keyword=${})}" method="get">
+    <input class="form-control me-2" type="search" placeholder="검색" aria-label="검색" name="query">
+    <button class="btn btn-outline-success" type="submit">검색</button>
+</form>
+<div class="container">
+    <h1>Employee List</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>이름</th>
+            <th>부서</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee : ${employeeList}">
+            <td>
+                <a th:href="@{|/employees/${employee.getEmployeeId()}|}"
+                    th:text="${employee.getName()}">Name
+                </a>
+            </td>
+            <td th:text="${employee.getTeam()}">Team</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

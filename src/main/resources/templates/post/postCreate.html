@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Employee List</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/bootstrap.min.css">
+        <script src="/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div th:replace="navbar.html :: navbar"></div>
+        <h1>
+            Create Post Page
+        </h1>
+        <form th:action="@{/posts/create}" method="post">
+            <div class="mb-3">
+                <label for="title" class="form-label">제목</label><br>
+                <input type="text" name="title" id="title" class="form-control"><br>
+                <label for="content" class="form-label">내용</label><br>
+                <input type="text" name="content" id="content" class="form-control"><br>
+                <label for="writer" class="form-label">작성자</label><br>
+                <input type="text" name="writer" id="writer" class="form-control"><br><br>
+                <input type="submit" value="작성" class="btn btn-primary">
+            </div>
+        </form>
+    </body>
+</html>

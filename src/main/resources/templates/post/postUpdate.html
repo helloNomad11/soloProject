@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Employee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <script src="/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="navbar.html :: navbar"></div>
+<h1>Update Post</h1>
+<form th:action="@{/posts/update/{id}(id=${post.getPostId()})}" th:method="put">
+    <div class="mb-3">
+        <label for="title" class="form-label">제목</label><br>
+        <input type="text" name="title" id="title" class="form-control" th:value="${post.getTitle()}"><br>
+        <label for="content" class="form-label">본문</label><br>
+        <input type="text" name="content" id="content" class="form-control" th:value="${post.getContent()}"><br>
+        <label for="writer" class="form-label">작성자</label><br>
+        <input type="text" name="writer" id="writer" class="form-control" th:value="${post.getWriter}"><br>
+        <br><br>
+    </div>
+    <input type="submit" value="완료" class="btn btn-primary">
+</form><br>
+<a th:href="@{/posts/delete/{id}(id=${post.getPostId()})}" class="btn btn-danger">삭제</a>
+</body>
+</html>

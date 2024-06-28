@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <script src="/bootstrap.min.js"></script>
+</head>
+<body>
+    <div th:replace="navbar.html :: navbar"></div>
+    <h1>Employee Information</h1>
+    <form th:action="@{/employees/create}" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">직원 이름</label><br>
+            <input type="text" name="name" id="name" class="form-control"><br>
+            <label for="image" class="form-label">직원 사진(링크 삽입)</label><br>
+            <input type="text" name="image" id="image" class="form-control"><br>
+            <label for="eMail" class="form-label">e-mail</label><br>
+            <input type="text" name="eMail" id="eMail" class="form-control"><br>
+            <label for="phoneNumber" class="form-label">phone-number</label><br>
+            <input type="text" name="phoneNumber" id="phoneNumber" class="form-control"><br>
+            <label for="team" class="form-label">부서</label><br>
+            <input type="text" name="team" id="team" class="form-control">
+            <br><br>
+        </div>
+        <input type="submit" value="직원 등록" class="btn btn-primary">
+    </form>
+</body>
+</html>
